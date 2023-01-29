@@ -19,7 +19,7 @@ test_data = pd.read_csv(os.path.join(ROOT, config['eda']['test_set']))
 
 
 # ---- NAN visualization ----
-fig, ax = plt.subplots(figsize=(25,10))
+fig, ax = plt.subplots(figsize=eval(config['eda']['img_size_large']))
 
 # Plot specs
 sns.heatmap(data=train_data.isnull(), yticklabels=False, ax=ax)
@@ -28,7 +28,7 @@ fig.savefig(os.path.join(ROOT, 'images/nan.jpg'))
 
 
 # ---- Sale price vs house style ----
-fig, ax = plt.subplots(figsize=(25,10))
+fig, ax = plt.subplots(figsize=eval(config['eda']['img_size_small']))
 
 # Plot specs
 sns.countplot(x=train_data['SaleCondition'])
