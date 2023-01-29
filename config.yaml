@@ -5,3 +5,6 @@ main:
 eda:
   train_set: "assets/train.csv"
   test_set: "assets/test.csv"
+  img_size_small: (8, 6)
+  img_size_medium: (10, 8)
+  img_size_large: (12, 10)
