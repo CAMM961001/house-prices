@@ -1,0 +1,7 @@
+main:
+  components_repository: "https://github.com/CAMM961001/house-prices"
+  project_name: house_prices_clean_code
+  steps: all
+eda:
+  train: "assets/train.csv"
+  test: "assets/test.csv"
