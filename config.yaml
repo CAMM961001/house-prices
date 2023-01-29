@@ -3,5 +3,5 @@ main:
   project_name: house_prices_clean_code
   steps: all
 eda:
-  train: "assets/train.csv"
-  test: "assets/test.csv"
+  train_set: "assets/train.csv"
+  test_set: "assets/test.csv"
