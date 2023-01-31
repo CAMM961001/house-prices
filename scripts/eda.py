@@ -4,32 +4,32 @@ from pandas import read_csv
 from seaborn import heatmap, countplot, histplot, violinplot, scatterplot
 from matplotlib.pyplot import subplots, grid
 
-
-# Enviroment settings and paths
-CURRENT = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(CURRENT)
-#sys.path.append(PARENT)
-
-with open(os.path.join(ROOT, 'config.yaml'), 'r') as f:
-    config = yaml.safe_load(f)
-f.close()
-
-# Load data to __file__
-train_data = read_csv(os.path.join(ROOT, config['eda']['train_set']))
-test_data = read_csv(os.path.join(ROOT, config['eda']['test_set']))
+from settings import Settings
 
 
-# ---- NAN visualization ----
-fig, ax = subplots(figsize=eval(config['eda']['img_size_large']))
+# Initialize project settings
+settings = Settings()
+
+# Load train data to __file__
+train_data = read_csv(
+    os.path.join(settings.ROOT_PATH,
+    settings.CONFIG['eda']['train_set']))
+
+
+
+# Visualizing NAN values
+fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_large']))
 
 # Plot specs
 heatmap(data=train_data.isnull(), yticklabels=False, ax=ax)
 
-fig.savefig(os.path.join(ROOT, 'images/nan.jpg'))
+# Save figure to file
+fig.savefig(os.path.join(settings.ROOT_PATH, 'images/nan.jpg'))
 
 
-# ---- Sale price vs house style ----
-fig, ax = subplots(figsize=eval(config['eda']['img_size_small']))
+
+# Visualizing sale price vs house style
+fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_small']))
 
 # Plot specs
 countplot(x=train_data['SaleCondition'])
@@ -41,7 +41,9 @@ scatterplot(x=train_data["Foundation"], y=train_data["SalePrice"], ax=ax)
 ax.set_title('House style effect on sale price')
 grid()
 
-fig.savefig(os.path.join(ROOT, 'images/price_house_style.jpg'))
+# Save figure to file
+fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
+
 
 
 if __name__ == '__main__':
