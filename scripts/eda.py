@@ -1,4 +1,5 @@
-import os, yaml
+import os
+import datetime as dt
 
 from pandas import read_csv
 from seaborn import heatmap, countplot, histplot, violinplot, scatterplot
@@ -42,4 +43,13 @@ fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
 
 
 if __name__ == '__main__':
-    print("Job done")
+    
+    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    
+    prompt = f"Job: {__file__}\n"
+    prompt += "Status: DONE\n"
+    prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
+
+    with open(file=log, mode='a') as f:
+        f.write(prompt)
+    f.close()
