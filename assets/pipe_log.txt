@@ -1,0 +1,3 @@
+Pipe log:Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-01-31 15:50:06.642745
