@@ -11,10 +11,7 @@ from settings import Settings
 settings = Settings()
 
 # Load train data to __file__
-train_data = read_csv(
-    os.path.join(settings.ROOT_PATH,
-    settings.CONFIG['assets']['train_set']))
-
+train_data = settings.train_data
 
 
 # Visualizing NAN values
@@ -25,7 +22,6 @@ heatmap(data=train_data.isnull(), yticklabels=False, ax=ax)
 
 # Save figure to file
 fig.savefig(os.path.join(settings.ROOT_PATH, 'images/nan.jpg'))
-
 
 
 # Visualizing sale price vs house style
