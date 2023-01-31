@@ -13,7 +13,7 @@ settings = Settings()
 # Load train data to __file__
 train_data = read_csv(
     os.path.join(settings.ROOT_PATH,
-    settings.CONFIG['eda']['train_set']))
+    settings.CONFIG['assets']['train_set']))
 
 
 
