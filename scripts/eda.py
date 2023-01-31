@@ -41,6 +41,5 @@ grid()
 fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
 
 
-
 if __name__ == '__main__':
     print("Job done")
