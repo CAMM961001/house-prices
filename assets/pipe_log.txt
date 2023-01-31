@@ -6,3 +6,7 @@ Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
 Status: DONE
 TimeStamp: 2023-01-31 16:13:57.145094
 
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 16:18:40.869714
+
