@@ -8,7 +8,7 @@ assets:
   data_description: "assets/data_description.txt"
   feature_selector: "assets/feature_selector.csv"
   processed_train: "assets/processed_train.csv"
-  pipe_log: "asstes/pipe_log.csv"
+  pipe_log: "asstes/pipe_log.txt"
 eda:
   img_size_small: (8, 6)
   img_size_medium: (10, 8)
