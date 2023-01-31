@@ -1,7 +1,6 @@
 import os
 import datetime as dt
 
-from pandas import read_csv
 from seaborn import heatmap, countplot, histplot, violinplot, scatterplot
 from matplotlib.pyplot import subplots, grid
 
@@ -44,6 +43,7 @@ fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
 
 if __name__ == '__main__':
     
+    # Register task in log file
     log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
     
     prompt = f"Job: {__file__}\n"
