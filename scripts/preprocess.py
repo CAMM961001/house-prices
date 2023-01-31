@@ -2,8 +2,9 @@ import os
 
 import numpy as np
 import pandas as pd
+import datetime as dt
 
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 from settings import Settings
 
 
@@ -31,6 +32,7 @@ ord = ord['feature'].to_list()
 # Load desired features from train data to __file__
 train_data = settings.train_data[feat_select['feature'].to_list()]
 
+
 # Ordinal encoding
 for feat in ord:
     feat_order = feat_select.loc[feat_select['feature'] == feat, 'order']
@@ -44,10 +46,36 @@ for feat in ord:
     train_data.loc[train_data.index, feat] = ord_enc
 
 
-if __name__ == '__main__':
-    # Save processed data in assets dir
+# One hot encoding
+for feat in cat:
+    ohe = OneHotEncoder(
+        sparse_output=False,
+        handle_unknown='infrequent_if_exist')
+    
+    ohe = pd.DataFrame(
+        ohe.fit_transform(train_data[[feat]]),
+        columns=ohe.get_feature_names_out())
 
-    processed_train = os.path.join(settings.ROOT_PATH, 'assets/processed_train.csv')
+    train_data = train_data.join(ohe)
+    train_data.drop(columns=feat, inplace=True)
+    
+
+
+if __name__ == '__main__':
+
+    # Save processed data in assets directory
+    processed_train = os.path.join(
+        settings.ROOT_PATH,
+        settings.CONFIG['assets']['processed_train'])
     train_data.to_csv(processed_train, index=False)
 
-    print("Job done")
+    # Register task in log file
+    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    
+    prompt = f"Job: {__file__}\n"
+    prompt += "Status: DONE\n"
+    prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
+
+    with open(file=log, mode='a') as f:
+        f.write(prompt)
+    f.close()
