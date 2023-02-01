@@ -17,8 +17,8 @@ settings = Settings()
 target = settings.target
 
 # Load processed data data to __file__
-train = settings.processed_train
-test = settings.processed_test
+train = settings.invoque_data('processed_train')
+test = settings.invoque_data('processed_test')
 
 
 # Split in features and target
