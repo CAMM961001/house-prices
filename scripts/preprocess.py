@@ -1,6 +1,5 @@
 import os
 
-import numpy as np
 import pandas as pd
 import datetime as dt
 
@@ -58,7 +57,7 @@ for key in feats.keys():
     ftype = feat_select.loc[feat_select['type_class'] == key]
     feats[key] = ftype['feature'].to_list()
 
-
+# La siguiente sección podría ser un loop...
 # Load desired features from TRAIN data to __file__
 train_data = settings.train_data[feat_select['feature'].to_list()]
 train_data = encode_data(df=train_data, ord=feats['ordinal'], cat=feats['categorical'])
