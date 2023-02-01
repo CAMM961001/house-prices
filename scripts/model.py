@@ -3,29 +3,48 @@ import os
 import pandas as pd
 import datetime as dt
 
-from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score
-from sklearn.metrics import mean_squared_error
+
 from settings import Settings
 
 
 # Initialize project settings
 settings = Settings()
 
+# Get target name
+target = settings.target
+
 # Load processed train data to __file__
 train = settings.processed_train
+
+# Split in features and target
+X = train.drop(columns=target)
+y = train[target]
+
+# Hyper-parameters
+max_leaf_nodes = settings.CONFIG['model']['max_leafs']
+n_folds = settings.CONFIG['model']['n_folds']
+
+# Train model
+model = RandomForestRegressor(max_leaf_nodes=max_leaf_nodes)
+model.fit(X=X, y=y)
+score = cross_val_score(model, X, y, cv=n_folds)
 
 
 if __name__ == '__main__':
 
     # Register task in log file
-    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    # log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
     
-    prompt = f"Job: {__file__}\n"
-    prompt += "Status: DONE\n"
-    prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
+    # prompt = f"Job: {__file__}\n"
+    # prompt += "Status: DONE\n"
+    # prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
 
-    with open(file=log, mode='a') as f:
-        f.write(prompt)
-    f.close()
+    # with open(file=log, mode='a') as f:
+    #     f.write(prompt)
+    # f.close()
+
+    print(X.shape)
+    print(y.shape)
+    print(score)
