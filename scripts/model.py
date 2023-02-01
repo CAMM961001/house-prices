@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 import datetime as dt
 
@@ -14,8 +16,10 @@ settings = Settings()
 # Get target name
 target = settings.target
 
-# Load processed train data to __file__
+# Load processed data data to __file__
 train = settings.processed_train
+test = settings.processed_test
+
 
 # Split in features and target
 X = train.drop(columns=target)
@@ -35,6 +39,17 @@ scores = cross_val_score(model, X, y, cv=n_folds)
 stop = process_time()
 
 # Predict
+sale_price = model.predict(test)
+predictions_df = pd.DataFrame({
+    "Id": test.index + 1,
+    "SalePrice": sale_price
+})
+
+# Save predictions to csv
+predictions = os.path.join(
+    settings.ROOT_PATH,
+    settings.CONFIG['assets']['predictions'])
+predictions_df.to_csv(predictions, index=False)
 
 
 if __name__ == '__main__':
@@ -47,10 +62,10 @@ if __name__ == '__main__':
     prompt += f"TimeStamp: {dt.datetime.now()}\n"
     prompt += f"Scores: {scores}\n"
     prompt += f"MeanScore: {scores.mean()}\n"
-    prompt += f"ProcessTime: {stop - start} [seconds]"
+    prompt += f"TrainTime: {stop - start} [seconds]\n\n"
 
     # with open(file=log, mode='a') as f:
     #     f.write(prompt)
     # f.close()
 
-    print(prompt)
+    print(predictions_df.head())
