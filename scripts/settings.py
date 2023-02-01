@@ -13,22 +13,6 @@ class Settings:
             self.CONFIG = yaml.safe_load(f)
         f.close()
 
-        self.train_data = read_csv(
-            os.path.join(self.ROOT_PATH,
-            self.CONFIG['assets']['train_set']))
-
-        self.test_data = read_csv(
-            os.path.join(self.ROOT_PATH,
-            self.CONFIG['assets']['test_set']))
-
-        self.processed_train = read_csv(
-            os.path.join(self.ROOT_PATH,
-            self.CONFIG['assets']['processed_train']))
-
-        self.processed_test = read_csv(
-            os.path.join(self.ROOT_PATH,
-            self.CONFIG['assets']['processed_test']))
-
         self.target = os.path.join(
             self.ROOT_PATH,
             self.CONFIG['assets']['feature_selector'])
@@ -39,6 +23,13 @@ class Settings:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
         prompt += f"ROOT_PATH:\t{self.ROOT_PATH}"
         return prompt
+
+    def invoque_data(self, env_var):
+        df = read_csv(
+            os.path.join(self.ROOT_PATH,
+            self.CONFIG['assets'][env_var]))
+        
+        return df
 
 if __name__ == '__main__':
     settings = Settings()
