@@ -16,3 +16,4 @@ eda:
   img_size_large: (12, 10)
 model:
   max_leafs: 250
+  n_folds: 10
