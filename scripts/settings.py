@@ -29,6 +29,12 @@ class Settings:
             os.path.join(self.ROOT_PATH,
             self.CONFIG['assets']['processed_test']))
 
+        self.target = os.path.join(
+            self.ROOT_PATH,
+            self.CONFIG['assets']['feature_selector'])
+        self.target = read_csv(self.target)
+        self.target = self.target.loc[self.target['consider'] == 2, 'feature'].to_list()
+
     def __str__(self) -> str:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
         prompt += f"ROOT_PATH:\t{self.ROOT_PATH}"
