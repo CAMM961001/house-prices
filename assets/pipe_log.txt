@@ -10,3 +10,159 @@ Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
 Status: DONE
 TimeStamp: 2023-01-31 16:18:40.869714
 
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 22:23:38.947312
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 22:39:40.204484
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 22:52:38.324337
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 22:54:52.098938
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-01-31 23:08:09.358408
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-01-31 23:08:19.631911
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-01-31 23:32:59.570701
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:07:42.908569
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:09:48.643521
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:16:50.170055
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:17:21.749782
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:19:04.144750
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:21:43.594293
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:22:07.797575
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:23:52.959254
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 00:24:34.898818
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-01 16:33:36.492267
+Scores: [0.86651058 0.8998746  0.91533565 0.71654386 0.857756   0.90192583
+ 0.89421293 0.89578742 0.78747961 0.81230302]
+MeanScore: 0.8547729498410034
+TrainTime: 9.5039048 [seconds]
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 16:42:47.072298
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 16:42:59.984980
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 16:49:14.206608
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 16:50:10.384186
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 16:50:19.406000
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 16:51:44.907799
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-01 16:53:07.116125
+Scores: [0.87440894 0.89370988 0.91263676 0.72599088 0.85171793 0.90143023
+ 0.89335361 0.89499692 0.81333967 0.79912772]
+MeanScore: 0.8560712535716688
+TrainTime: 8.8949716 [seconds]
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 17:00:16.724704
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 17:00:51.792033
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 17:00:52.727331
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-01 17:01:02.236738
+Scores: [0.86912738 0.89583751 0.91263575 0.71459663 0.87129825 0.88879594
+ 0.89376116 0.90273764 0.7938101  0.806062  ]
+MeanScore: 0.8548662354590023
+TrainTime: 8.8083055 [seconds]
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 17:01:38.091175
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 17:01:39.068767
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-01 17:01:48.614101
+Scores: [0.86423945 0.90197965 0.91173322 0.72080041 0.86505336 0.89536451
+ 0.89206862 0.90068555 0.79251091 0.80852539]
+MeanScore: 0.8552961077494944
+TrainTime: 8.809202599999999 [seconds]
+
+Job: /home/camm961001/Github/house-prices/scripts/eda.py
+Status: DONE
+TimeStamp: 2023-02-01 17:06:03.014944
+
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-01 17:06:04.571209
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-01 17:06:16.955614
+Scores: [0.86977885 0.89435643 0.91356375 0.72614282 0.85774103 0.88830315
+ 0.89492351 0.90652629 0.79499239 0.80717895]
+MeanScore: 0.8553507157993
+TrainTime: 11.163716099999998 [seconds]
+
