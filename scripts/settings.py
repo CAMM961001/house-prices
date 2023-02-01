@@ -21,6 +21,14 @@ class Settings:
             os.path.join(self.ROOT_PATH,
             self.CONFIG['assets']['test_set']))
 
+        self.processed_train = read_csv(
+            os.path.join(self.ROOT_PATH,
+            self.CONFIG['assets']['processed_train']))
+
+        self.processed_test = read_csv(
+            os.path.join(self.ROOT_PATH,
+            self.CONFIG['assets']['processed_test']))
+
     def __str__(self) -> str:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
         prompt += f"ROOT_PATH:\t{self.ROOT_PATH}"
