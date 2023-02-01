@@ -17,7 +17,7 @@ class Settings:
             os.path.join(self.ROOT_PATH,
             self.CONFIG['assets']['train_set']))
 
-        self.train_data = read_csv(
+        self.test_data = read_csv(
             os.path.join(self.ROOT_PATH,
             self.CONFIG['assets']['test_set']))
 
