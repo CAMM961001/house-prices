@@ -39,23 +39,23 @@ scores = cross_val_score(model, X, y, cv=n_folds)
 stop = process_time()
 
 # Predict
-sale_price = model.predict(test)
-predictions_df = pd.DataFrame({
-    "Id": test.index + 1,
-    "SalePrice": sale_price
-})
+# sale_price = model.predict(test)
+# predictions_df = pd.DataFrame({
+#     "Id": test.index + 1,
+#     "SalePrice": sale_price
+# })
 
-# Save predictions to csv
-predictions = os.path.join(
-    settings.ROOT_PATH,
-    settings.CONFIG['assets']['predictions'])
-predictions_df.to_csv(predictions, index=False)
+# # Save predictions to csv
+# predictions = os.path.join(
+#     settings.ROOT_PATH,
+#     settings.CONFIG['assets']['predictions'])
+# predictions_df.to_csv(predictions, index=False)
 
 
 if __name__ == '__main__':
 
     # Register task in log file
-    # log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
     
     prompt = f"Job: {__file__}\n"
     prompt += "Status: DONE\n"
@@ -64,8 +64,6 @@ if __name__ == '__main__':
     prompt += f"MeanScore: {scores.mean()}\n"
     prompt += f"TrainTime: {stop - start} [seconds]\n\n"
 
-    # with open(file=log, mode='a') as f:
-    #     f.write(prompt)
-    # f.close()
-
-    print(predictions_df.head())
+    with open(file=log, mode='a') as f:
+        f.write(prompt)
+    f.close()
