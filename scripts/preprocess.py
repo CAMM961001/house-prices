@@ -59,7 +59,8 @@ for key in feats.keys():
 
 # La siguiente sección podría ser un loop...
 # Load desired features from TRAIN data to __file__
-train_data = settings.train_data[feat_select['feature'].to_list()]
+train_data = settings.invoque_data(env_var='train_set')
+train_data = train_data[feat_select['feature'].to_list()]
 train_data = encode_data(df=train_data, ord=feats['ordinal'], cat=feats['categorical'])
 train_data.dropna(axis=0, inplace=True)
 
@@ -71,8 +72,9 @@ train_data.to_csv(processed_train, index=False)
 
 
 # Load desired features from TEST data to __file__
-test_data = feat_select.loc[feat_select['consider'] == 1]['feature'].to_list()
-test_data = settings.test_data[test_data]
+test_feats = feat_select.loc[feat_select['consider'] == 1]['feature'].to_list()
+test_data = settings.invoque_data(env_var='test_set')
+test_data = test_data[test_feats]
 test_data = encode_data(df=test_data, ord=feats['ordinal'], cat=feats['categorical'])
 test_data.dropna(axis=0, inplace=True)
 
