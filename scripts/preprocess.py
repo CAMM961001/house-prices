@@ -61,6 +61,7 @@ for key in feats.keys():
 # Load desired features from TRAIN data to __file__
 train_data = settings.train_data[feat_select['feature'].to_list()]
 train_data = encode_data(df=train_data, ord=feats['ordinal'], cat=feats['categorical'])
+train_data.dropna(axis=0, inplace=True)
 
 # Save processed data in assets directory
 processed_train = os.path.join(
@@ -73,6 +74,7 @@ train_data.to_csv(processed_train, index=False)
 test_data = feat_select.loc[feat_select['consider'] == 1]['feature'].to_list()
 test_data = settings.test_data[test_data]
 test_data = encode_data(df=test_data, ord=feats['ordinal'], cat=feats['categorical'])
+test_data.dropna(axis=0, inplace=True)
 
 # Save processed data in assets directory
 processed_test = os.path.join(
