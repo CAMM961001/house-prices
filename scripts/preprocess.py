@@ -52,37 +52,37 @@ feat_select = os.path.join(
 feat_select = pd.read_csv(feat_select)
 feat_select = feat_select.loc[feat_select['consider'] != 0]
 
-# List of numerical, categorical and ordinal features
-num = feat_select.loc[feat_select['type_class'] == 'numerical']
-num = num['feature'].to_list()
+# Dictionary of numerical, categorical and ordinal features
+feats = {"numerical":None, "categorical":None, "ordinal":None}
+for key in feats.keys():
+    ftype = feat_select.loc[feat_select['type_class'] == key]
+    feats[key] = ftype['feature'].to_list()
 
-cat = feat_select.loc[feat_select['type_class'] == 'categorical']
-cat = cat['feature'].to_list()
 
-ord = feat_select.loc[feat_select['type_class'] == 'ordinal']
-ord = ord['feature'].to_list()
-
-# Load desired features from train data to __file__
+# Load desired features from TRAIN data to __file__
 train_data = settings.train_data[feat_select['feature'].to_list()]
-train_data = encode_data(df=train_data, ord=ord, cat=cat)
+train_data = encode_data(df=train_data, ord=feats['ordinal'], cat=feats['categorical'])
 
-# Load desired features from test data to __file__
+# Save processed data in assets directory
+processed_train = os.path.join(
+    settings.ROOT_PATH,
+    settings.CONFIG['assets']['processed_train'])
+train_data.to_csv(processed_train, index=False)
+
+
+# Load desired features from TEST data to __file__
 test_data = feat_select.loc[feat_select['consider'] == 1]['feature'].to_list()
 test_data = settings.test_data[test_data]
-test_data = encode_data(df=test_data, ord=ord, cat=cat)
+test_data = encode_data(df=test_data, ord=feats['ordinal'], cat=feats['categorical'])
+
+# Save processed data in assets directory
+processed_test = os.path.join(
+    settings.ROOT_PATH,
+    settings.CONFIG['assets']['processed_test'])
+test_data.to_csv(processed_test, index=False)
+
 
 if __name__ == '__main__':
-
-    # Save processed data in assets directory
-    processed_train = os.path.join(
-        settings.ROOT_PATH,
-        settings.CONFIG['assets']['processed_train'])
-    train_data.to_csv(processed_train, index=False)
-
-    processed_test = os.path.join(
-        settings.ROOT_PATH,
-        settings.CONFIG['assets']['processed_test'])
-    test_data.to_csv(processed_test, index=False)
 
     # Register task in log file
     log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
