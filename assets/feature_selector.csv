@@ -79,4 +79,4 @@ MoSold,numerical,0,NA
 YrSold,numerical,0,NA
 SaleType,categorical,1,NA
 SaleCondition,categorical,1,NA
-SalePrice,target,1,NA
+SalePrice,target,2,NA
