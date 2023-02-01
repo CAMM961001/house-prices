@@ -10,8 +10,7 @@ from settings import Settings
 # Initialize project settings
 settings = Settings()
 
-# Load train data to __file__
-train_data = settings.train_data
+train_data = settings.invoque_data(env_var='train_set')
 
 
 # Visualizing NAN values
