@@ -26,7 +26,11 @@ def encode_data(df, ord, cat):
 
     # One hot encoding
     for feat in cat:
+        cats = feat_select.loc[feat_select['feature'] == feat, 'order']
+        cats = feat_order.values[0].split(";")
+
         ohe = OneHotEncoder(
+            categories=[cats],
             sparse_output=False,
             handle_unknown='infrequent_if_exist')
         
