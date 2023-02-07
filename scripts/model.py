@@ -1,7 +1,7 @@
 import os
+import logging
 
 import pandas as pd
-import datetime as dt
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score
@@ -55,15 +55,10 @@ predictions_df.to_csv(predictions, index=False)
 if __name__ == '__main__':
 
     # Register task in log file
-    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
-    
-    prompt = f"Job: {__file__}\n"
-    prompt += "Status: DONE\n"
-    prompt += f"TimeStamp: {dt.datetime.now()}\n"
-    prompt += f"Scores: {scores}\n"
-    prompt += f"MeanScore: {scores.mean()}\n"
-    prompt += f"TrainTime: {stop - start} [seconds]\n\n"
+    prompt = f"Job in {__file__}:\n"
+    prompt += "\t- Status: DONE\n"
+    prompt += f"\t- MeanScore: {scores.mean()}\n"
+    prompt += f"\t- TrainTime: {stop - start} [seconds]\n"
 
-    with open(file=log, mode='a') as f:
-        f.write(prompt)
-    f.close()
+    # Add prompt to log file
+    logging.info(prompt)
