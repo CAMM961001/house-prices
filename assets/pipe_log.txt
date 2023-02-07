@@ -166,3 +166,15 @@ Scores: [0.86977885 0.89435643 0.91356375 0.72614282 0.85774103 0.88830315
 MeanScore: 0.8553507157993
 TrainTime: 11.163716099999998 [seconds]
 
+Job: /home/camm961001/Github/house-prices/scripts/preprocess.py
+Status: DONE
+TimeStamp: 2023-02-07 11:26:59.240109
+
+Job: /home/camm961001/Github/house-prices/scripts/model.py
+Status: DONE
+TimeStamp: 2023-02-07 11:29:16.924834
+Scores: [0.86864836 0.89556417 0.91859263 0.73166798 0.85582842 0.88842415
+ 0.89079375 0.89074586 0.78026205 0.80899811]
+MeanScore: 0.8529525463420027
+TrainTime: 9.3034806 [seconds]
+
