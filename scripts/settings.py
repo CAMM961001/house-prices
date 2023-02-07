@@ -8,7 +8,7 @@ class Settings:
     def __init__(self):
         self.SCRIPTS_PATH = os.path.dirname(os.path.abspath(__file__))
         self.ROOT_PATH = os.path.dirname(self.SCRIPTS_PATH)
-        
+
         with open(os.path.join(self.ROOT_PATH, "config.yaml"), 'r') as f:
             self.CONFIG = yaml.safe_load(f)
         f.close()
@@ -18,8 +18,8 @@ class Settings:
             self.CONFIG['assets']['feature_selector'])
 
         # Feature selector
-        self.feature_selector = read_csv(self.FEAT_PATH)
-        self.feature_selector = self.feature_selector.loc[self.feature_selector['consider'] != 0]
+        features_df = read_csv(self.FEAT_PATH)
+        self.feature_selector = features_df.loc[features_df['consider'] != 0]
 
         # Target feature
         self.target = self.feature_selector.loc[
