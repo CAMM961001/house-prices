@@ -27,12 +27,13 @@ def encode_data(df, ord, cat):
     # One hot encoding
     for feat in cat:
         cats = feat_select.loc[feat_select['feature'] == feat, 'order']
-        cats = feat_order.values[0].split(";")
+        cats = cats.values[0].split(";")
 
         ohe = OneHotEncoder(
             categories=[cats],
+            drop='if_binary',
             sparse_output=False,
-            handle_unknown='infrequent_if_exist')
+            handle_unknown='ignore')
         
         ohe = pd.DataFrame(
             ohe.fit_transform(df[[feat]]),
