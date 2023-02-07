@@ -27,7 +27,7 @@ class Settings:
 
     def __str__(self) -> str:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
-        prompt += f"ROOT_PATH:\t{self.ROOT_PATH}"
+        prompt += f"ROOT_PATH:\t{self.ROOT_PATH}\n"
         prompt += f"FEAT_PATH:\t{self.FEAT_PATH}"
         return prompt
 
