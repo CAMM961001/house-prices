@@ -1,4 +1,4 @@
-import os
+import os, sys, logging
 import datetime as dt
 
 from seaborn import heatmap, countplot, histplot, violinplot, scatterplot
@@ -10,35 +10,42 @@ from settings import Settings
 # Initialize project settings
 settings = Settings()
 
-train_data = settings.invoque_data(env_var='train_set')
+try:
+    train_var = 'train_set'
+    train_data = settings.invoque_data(env_var=train_var)
+
+    # Visualizing NAN values
+    fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_large']))
+
+    # Plot specs
+    heatmap(data=train_data.isnull(), yticklabels=False, ax=ax)
+
+    # Save figure to file
+    fig.savefig(os.path.join(settings.ROOT_PATH, 'images/nan.jpg'))
 
 
-# Visualizing NAN values
-fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_large']))
+    # Visualizing sale price vs house style
+    fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_small']))
 
-# Plot specs
-heatmap(data=train_data.isnull(), yticklabels=False, ax=ax)
+    # Plot specs
+    countplot(x=train_data['SaleCondition'])
+    histplot(x=train_data['SaleType'], kde=True, ax=ax)
+    violinplot(x=train_data['HouseStyle'], y=train_data['SalePrice'], ax=ax)
+    scatterplot(x=train_data["Foundation"], y=train_data["SalePrice"], ax=ax)
 
-# Save figure to file
-fig.savefig(os.path.join(settings.ROOT_PATH, 'images/nan.jpg'))
+    # Annotations and styling
+    ax.set_title('House style effect on sale price')
+    grid()
 
+    # Save figure to file
+    fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
 
-# Visualizing sale price vs house style
-fig, ax = subplots(figsize=eval(settings.CONFIG['eda']['img_size_small']))
-
-# Plot specs
-countplot(x=train_data['SaleCondition'])
-histplot(x=train_data['SaleType'], kde=True, ax=ax)
-violinplot(x=train_data['HouseStyle'], y=train_data['SalePrice'], ax=ax)
-scatterplot(x=train_data["Foundation"], y=train_data["SalePrice"], ax=ax)
-
-# Annotations and styling
-ax.set_title('House style effect on sale price')
-grid()
-
-# Save figure to file
-fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
-
+except (FileNotFoundError, KeyError):
+    prompt = 'An exception has occurred, either:\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" not found in dir\n'
+    prompt += f'\t- ENV_VAR: "{train_var}", has no matching file in assets dir'
+    print(prompt)
+    sys.exit(1)
 
 if __name__ == '__main__':
     
