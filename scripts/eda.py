@@ -10,14 +10,6 @@ from settings import Settings
 # Initialize project settings
 settings = Settings()
 
-# Log setting
-# logging.basicConfig(
-#     filename=settings.LOG_PATH,
-#     level=logging.DEBUG,
-#     filemode='a',
-#     datefmt='%Y-%m-%d %H:%M:%S',
-#     format='%(levelname)s|%(asctime)s|%(name)s|\n%(message)s')
-
 try:
     train_var = 'train_set'
     train_data = settings.invoque_data(env_var=train_var)
@@ -51,7 +43,8 @@ try:
 except (FileNotFoundError, KeyError):
     # Exception prompt
     prompt = f'An exception has occurred, either:\n'
-    prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" not found in dir\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" '
+    prompt += 'not found in assets dir\n'
     prompt += f'\t- ENV_VAR "{train_var}" has no matching file in assets dir\n'
     
     # Add prompt to log file
@@ -62,14 +55,8 @@ except (FileNotFoundError, KeyError):
 if __name__ == '__main__':
     
     # Register task in log file
-    # log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    prompt = f"Job in {__file__}:\n"
+    prompt += "\t- Status: DONE\n"
     
-    # prompt = f"Job: {__file__}\n"
-    # prompt += "Status: DONE\n"
-    # prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
-
-    # with open(file=log, mode='a') as f:
-    #     f.write(prompt)
-    # f.close()
-
-    print('end')
+    # Add prompt to log file
+    logging.info(prompt)
