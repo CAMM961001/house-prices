@@ -57,10 +57,7 @@ predictions_df = pd.DataFrame({
 })
 
 # Save predictions to csv
-predictions = os.path.join(
-    settings.ROOT_PATH,
-    settings.CONFIG['assets']['predictions'])
-predictions_df.to_csv(predictions, index=False)
+settings.save_df(df=predictions_df, env_var='predictions')
 
 
 if __name__ == '__main__':
