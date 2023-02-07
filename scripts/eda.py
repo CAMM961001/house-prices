@@ -10,6 +10,14 @@ from settings import Settings
 # Initialize project settings
 settings = Settings()
 
+# Log setting
+# logging.basicConfig(
+#     filename=settings.LOG_PATH,
+#     level=logging.DEBUG,
+#     filemode='a',
+#     datefmt='%Y-%m-%d %H:%M:%S',
+#     format='%(levelname)s|%(asctime)s|%(name)s|\n%(message)s')
+
 try:
     train_var = 'train_set'
     train_data = settings.invoque_data(env_var=train_var)
@@ -41,21 +49,27 @@ try:
     fig.savefig(os.path.join(settings.ROOT_PATH, 'images/price_house_style.jpg'))
 
 except (FileNotFoundError, KeyError):
-    prompt = 'An exception has occurred, either:\n'
+    # Exception prompt
+    prompt = f'An exception has occurred, either:\n'
     prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" not found in dir\n'
-    prompt += f'\t- ENV_VAR: "{train_var}", has no matching file in assets dir'
-    print(prompt)
+    prompt += f'\t- ENV_VAR "{train_var}" has no matching file in assets dir\n'
+    
+    # Add prompt to log file
+    logging.error(prompt)
+
     sys.exit(1)
 
 if __name__ == '__main__':
     
     # Register task in log file
-    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
+    # log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
     
-    prompt = f"Job: {__file__}\n"
-    prompt += "Status: DONE\n"
-    prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
+    # prompt = f"Job: {__file__}\n"
+    # prompt += "Status: DONE\n"
+    # prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
 
-    with open(file=log, mode='a') as f:
-        f.write(prompt)
-    f.close()
+    # with open(file=log, mode='a') as f:
+    #     f.write(prompt)
+    # f.close()
+
+    print('end')
