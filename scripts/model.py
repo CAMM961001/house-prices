@@ -39,17 +39,17 @@ scores = cross_val_score(model, X, y, cv=n_folds)
 stop = process_time()
 
 # Predict
-# sale_price = model.predict(test)
-# predictions_df = pd.DataFrame({
-#     "Id": test.index + 1,
-#     "SalePrice": sale_price
-# })
+sale_price = model.predict(test)
+predictions_df = pd.DataFrame({
+    "Id": test.index + 1,
+    "SalePrice": sale_price
+})
 
-# # Save predictions to csv
-# predictions = os.path.join(
-#     settings.ROOT_PATH,
-#     settings.CONFIG['assets']['predictions'])
-# predictions_df.to_csv(predictions, index=False)
+# Save predictions to csv
+predictions = os.path.join(
+    settings.ROOT_PATH,
+    settings.CONFIG['assets']['predictions'])
+predictions_df.to_csv(predictions, index=False)
 
 
 if __name__ == '__main__':
