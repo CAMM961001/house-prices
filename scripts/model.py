@@ -1,4 +1,4 @@
-import os
+import os, sys
 import logging
 
 import pandas as pd
@@ -17,9 +17,20 @@ settings = Settings()
 target = settings.target
 
 # Load processed data data to __file__
-train = settings.invoque_data('processed_train')
-test = settings.invoque_data('processed_test')
+try:
+    train = settings.invoque_data('processed_train')
+    test = settings.invoque_data('processed_test')
 
+except FileNotFoundError:
+    # Exception prompt
+    prompt = f'An exception has occurred, either:\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["processed_train"]}" or\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["processed_test"]}" '
+    prompt += 'not found in assets dir\n'
+    
+    # Add prompt to log file
+    logging.error(prompt)
+    sys.exit(1)
 
 # Split in features and target
 X = train.drop(columns=target)
