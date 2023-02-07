@@ -1,5 +1,6 @@
 import os
 import yaml
+import logging
 
 from pandas import read_csv
 
@@ -24,6 +25,14 @@ class Settings:
         # Feature selector
         features_df = read_csv(self.FEAT_PATH)
         self.feature_selector = features_df.loc[features_df['consider'] != 0]
+
+        #Logging settings
+        self.logging_settings = logging.basicConfig(
+            filename=self.LOG_PATH,
+            level=logging.DEBUG,
+            filemode='a',
+            datefmt='%Y-%m-%d %H:%M:%S',
+            format='%(levelname)s|%(asctime)s|%(name)s|\n%(message)s')
 
         # Target feature
         self.target = features_df.loc[
