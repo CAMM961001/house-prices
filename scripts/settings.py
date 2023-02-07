@@ -29,7 +29,7 @@ class Settings:
         #Logging settings
         self.logging_settings = logging.basicConfig(
             filename=self.LOG_PATH,
-            level=logging.DEBUG,
+            level=logging.INFO,
             filemode='a',
             datefmt='%Y-%m-%d %H:%M:%S',
             format='%(levelname)s|%(asctime)s|%(name)s|\n%(message)s')
