@@ -1,7 +1,6 @@
-import os
+import os, logging
 
 import pandas as pd
-import datetime as dt
 
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 from settings import Settings
@@ -86,14 +85,10 @@ settings.save_df(df=test_data, env_var='processed_test')
 
 
 if __name__ == '__main__':
-
-    # Register task in log file
-    log = os.path.join(settings.ROOT_PATH, settings.CONFIG['assets']['pipe_log'])
     
-    prompt = f"Job: {__file__}\n"
-    prompt += "Status: DONE\n"
-    prompt += f"TimeStamp: {dt.datetime.now()}\n\n"
+    # Register task in log file
+    prompt = f"Job in {__file__}:\n"
+    prompt += "\t- Status: DONE\n"
 
-    with open(file=log, mode='a') as f:
-        f.write(prompt)
-    f.close()
+    # Add prompt to log file
+    logging.info(prompt)
