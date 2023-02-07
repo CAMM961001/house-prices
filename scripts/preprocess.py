@@ -49,12 +49,7 @@ def encode_data(df, ord, cat):
 settings = Settings()
 
 # Load feature selector data
-feat_select = os.path.join(
-    settings.ROOT_PATH,
-    settings.CONFIG['assets']['feature_selector'])
-
-feat_select = pd.read_csv(feat_select)
-feat_select = feat_select.loc[feat_select['consider'] != 0]
+feat_select = settings.feature_selector
 
 # Dictionary of numerical, categorical and ordinal features
 feats = {"numerical":None, "categorical":None, "ordinal":None}
@@ -62,10 +57,12 @@ for key in feats.keys():
     ftype = feat_select.loc[feat_select['type_class'] == key]
     feats[key] = ftype['feature'].to_list()
 
-# La siguiente sección podría ser un loop...
+
 # Load desired features from TRAIN data to __file__
 train_data = settings.invoque_data(env_var='train_set')
 train_data = train_data[feat_select['feature'].to_list()]
+
+# Train set encoding
 train_data = encode_data(df=train_data, ord=feats['ordinal'], cat=feats['categorical'])
 train_data.dropna(axis=0, inplace=True)
 
@@ -80,6 +77,8 @@ train_data.to_csv(processed_train, index=False)
 test_feats = feat_select.loc[feat_select['consider'] == 1]['feature'].to_list()
 test_data = settings.invoque_data(env_var='test_set')
 test_data = test_data[test_feats]
+
+# Test set encoding
 test_data = encode_data(df=test_data, ord=feats['ordinal'], cat=feats['categorical'])
 test_data.dropna(axis=0, inplace=True)
 
