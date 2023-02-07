@@ -82,7 +82,7 @@ test_data = encode_data(df=test_data, feat_select=feature_selector)
 test_data.dropna(axis=0, inplace=True)
 
 # Save processed data in assets directory
-settings.save_df(df=train_data, env_var='processed_test')
+settings.save_df(df=test_data, env_var='processed_test')
 
 
 if __name__ == '__main__':
