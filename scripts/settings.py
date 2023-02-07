@@ -35,8 +35,16 @@ class Settings:
         df = read_csv(
             os.path.join(self.ROOT_PATH,
             self.CONFIG['assets'][env_var]))
-        
+
         return df
+
+    def save_df(self, df, env_var):
+        file_path = os.path.join(
+            self.ROOT_PATH,
+            self.CONFIG['assets'][env_var])
+        df.to_csv(file_path, index=False)
+        
+        
 
 if __name__ == '__main__':
     settings = Settings()
