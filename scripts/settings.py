@@ -13,6 +13,10 @@ class Settings:
             self.CONFIG = yaml.safe_load(f)
         f.close()
 
+        self.LOG_PATH = os.path.join(
+            self.ROOT_PATH,
+            self.CONFIG['assets']['pipe_log'])
+
         self.FEAT_PATH = os.path.join(
             self.ROOT_PATH,
             self.CONFIG['assets']['feature_selector'])
@@ -28,6 +32,7 @@ class Settings:
     def __str__(self) -> str:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
         prompt += f"ROOT_PATH:\t{self.ROOT_PATH}\n"
+        prompt += f"LOG_PATH:\t{self.LOG_PATH}\n"
         prompt += f"FEAT_PATH:\t{self.FEAT_PATH}"
         return prompt
 
