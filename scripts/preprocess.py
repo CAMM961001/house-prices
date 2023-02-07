@@ -60,28 +60,53 @@ feature_selector = settings.feature_selector
 
 
 # Load desired features from TRAIN data to __file__
-train_data = settings.invoque_data(env_var='train_set')
-train_data = train_data[feature_selector['feature'].to_list()]
+try:
+    env_var = 'train_set'
+    train_data = settings.invoque_data(env_var=env_var)
+    train_data = train_data[feature_selector['feature'].to_list()]
 
-# Train set encoding
-train_data = encode_data(df=train_data, feat_select=feature_selector)
-train_data.dropna(axis=0, inplace=True)
+    # Train set encoding
+    train_data = encode_data(df=train_data, feat_select=feature_selector)
+    train_data.dropna(axis=0, inplace=True)
 
-# Save processed data in assets directory
-settings.save_df(df=train_data, env_var='processed_train')
+    # Save processed data in assets directory
+    settings.save_df(df=train_data, env_var='processed_train')
+
+except (FileNotFoundError, KeyError):
+    # Exception prompt
+    prompt = f'An exception has occurred, either:\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" '
+    prompt += 'not found in assets dir\n'
+    prompt += f'\t- ENV_VAR "{env_var}" has no matching file in assets dir\n'
+    
+    # Add prompt to log file
+    logging.error(prompt)
 
 
 # Load desired features from TEST data to __file__
-test_feats = feature_selector.loc[feature_selector['consider'] == 1]['feature'].to_list()
-test_data = settings.invoque_data(env_var='test_set')
-test_data = test_data[test_feats]
+try:
+    env_var = 'test_set'
+    test_feats = feature_selector.loc[
+        (feature_selector['consider'] == 1)]['feature'].to_list()
+    test_data = settings.invoque_data(env_var=env_var)
+    test_data = test_data[test_feats]
 
-# Test set encoding
-test_data = encode_data(df=test_data, feat_select=feature_selector)
-test_data.dropna(axis=0, inplace=True)
+    # Test set encoding
+    test_data = encode_data(df=test_data, feat_select=feature_selector)
+    test_data.dropna(axis=0, inplace=True)
 
-# Save processed data in assets directory
-settings.save_df(df=test_data, env_var='processed_test')
+    # Save processed data in assets directory
+    settings.save_df(df=test_data, env_var='processed_test')
+
+except (FileNotFoundError, KeyError):
+    # Exception prompt
+    prompt = f'An exception has occurred, either:\n'
+    prompt += f'\t- "{settings.CONFIG["assets"]["train_set"]}" '
+    prompt += 'not found in assets dir\n'
+    prompt += f'\t- ENV_VAR "{env_var}" has no matching file in assets dir\n'
+    
+    # Add prompt to log file
+    logging.error(prompt)
 
 
 if __name__ == '__main__':
