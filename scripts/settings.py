@@ -22,8 +22,8 @@ class Settings:
         self.feature_selector = features_df.loc[features_df['consider'] != 0]
 
         # Target feature
-        self.target = self.feature_selector.loc[
-            (self.feature_selector['consider'] == 2, 'feature')].to_list()
+        self.target = features_df.loc[
+            (features_df['consider'] == 2, 'feature')].to_list()
 
     def __str__(self) -> str:
         prompt = f"SCRIPTS_PATH:\t{self.SCRIPTS_PATH}\n"
