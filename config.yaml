@@ -10,7 +10,7 @@ assets:
   processed_train: "data/clean/processed_train.csv"
   processed_test: "data/clean/processed_test.csv"
   predictions: "data/pred/predictions.csv"
-  pipe_log: "assets/job_status.log"
+  pipe_log: "logs/job_status.log"
 eda:
   img_size_small: (8, 6)
   img_size_medium: (10, 8)
