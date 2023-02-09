@@ -1,0 +1,14 @@
+INFO|2023-02-09 11:28:19|root|
+Job in /home/camm961001/Github/house-prices/scripts/eda.py:
+	- Status: DONE
+
+INFO|2023-02-09 11:28:20|root|
+Job in /home/camm961001/Github/house-prices/scripts/preprocess.py:
+	- Status: DONE
+
+INFO|2023-02-09 11:28:30|root|
+Job in /home/camm961001/Github/house-prices/scripts/model.py:
+	- Status: DONE
+	- MeanScore: 0.8560586605528613
+	- TrainTime: 8.683561899999999 [seconds]
+
