@@ -167,3 +167,9 @@ INFO|2023-02-09 11:21:08|root|
 Job in /home/camm961001/Github/house-prices/scripts/preprocess.py:
 	- Status: DONE
 
+INFO|2023-02-09 11:24:19|root|
+Job in /home/camm961001/Github/house-prices/scripts/model.py:
+	- Status: DONE
+	- MeanScore: 0.8558458156059656
+	- TrainTime: 8.557416499999999 [seconds]
+
