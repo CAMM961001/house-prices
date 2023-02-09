@@ -159,3 +159,7 @@ Job in /home/camm961001/Github/house-prices/scripts/model.py:
 	- MeanScore: 0.8560354815287627
 	- TrainTime: 9.809041800000001 [seconds]
 
+INFO|2023-02-09 11:18:23|root|
+Job in /home/camm961001/Github/house-prices/scripts/eda.py:
+	- Status: DONE
+
