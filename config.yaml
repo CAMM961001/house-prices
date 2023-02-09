@@ -3,8 +3,8 @@ main:
   project_name: house_prices_clean_code
   steps: all
 assets:
-  train_set: "assets/train.csv"
-  test_set: "assets/test.csv"
+  train_set: "data/raw/train.csv"
+  test_set: "data/raw/test.csv"
   data_description: "assets/data_description.txt"
   feature_selector: "assets/feature_selector.csv"
   processed_train: "assets/processed_train.csv"
