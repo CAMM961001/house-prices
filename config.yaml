@@ -9,8 +9,8 @@ assets:
   feature_selector: "assets/feature_selector.csv"
   processed_train: "data/clean/processed_train.csv"
   processed_test: "data/clean/processed_test.csv"
+  predictions: "data/pred/predictions.csv"
   pipe_log: "assets/job_status.log"
-  predictions: "assets/predictions.csv"
 eda:
   img_size_small: (8, 6)
   img_size_medium: (10, 8)
