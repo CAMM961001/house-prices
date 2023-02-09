@@ -7,8 +7,8 @@ assets:
   test_set: "data/raw/test.csv"
   data_description: "assets/data_description.txt"
   feature_selector: "assets/feature_selector.csv"
-  processed_train: "assets/processed_train.csv"
-  processed_test: "assets/processed_test.csv"
+  processed_train: "data/clean/processed_train.csv"
+  processed_test: "data/clean/processed_test.csv"
   pipe_log: "assets/job_status.log"
   predictions: "assets/predictions.csv"
 eda:
