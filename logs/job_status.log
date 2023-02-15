@@ -12,3 +12,13 @@ Job in /home/camm961001/Github/house-prices/scripts/model.py:
 	- MeanScore: 0.8560586605528613
 	- TrainTime: 8.683561899999999 [seconds]
 
+INFO|2023-02-09 11:57:51|root|
+Job in /home/camm961001/Github/house-prices/scripts/preprocess.py:
+	- Status: DONE
+
+INFO|2023-02-09 11:58:33|root|
+Job in /home/camm961001/Github/house-prices/scripts/model.py:
+	- Status: DONE
+	- MeanScore: 0.8510516450160119
+	- TrainTime: 8.9208119 [seconds]
+

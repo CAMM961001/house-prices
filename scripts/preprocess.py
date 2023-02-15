@@ -6,7 +6,7 @@ from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 from settings import Settings
 
 
-def encode_data(df, feat_select):
+def encode_data(arr, feat_select):
     """
     
     """
@@ -27,8 +27,8 @@ def encode_data(df, feat_select):
             categories=[feat_order],
             handle_unknown='use_encoded_value',
             unknown_value=-1)
-        ord_enc = ord_enc.fit_transform(df[[feat]])
-        df.loc[df.index, feat] = ord_enc
+        ord_enc = ord_enc.fit_transform(arr[[feat]])
+        arr.loc[arr.index, feat] = ord_enc
 
 
     # One hot encoding
@@ -43,13 +43,13 @@ def encode_data(df, feat_select):
             handle_unknown='ignore')
         
         ohe = pd.DataFrame(
-            ohe.fit_transform(df[[feat]]),
+            ohe.fit_transform(arr[[feat]]),
             columns=ohe.get_feature_names_out())
 
-        df = df.join(ohe)
-        df.drop(columns=feat, inplace=True)
+        arr = arr.join(ohe)
+        arr.drop(columns=feat, inplace=True)
 
-    return df
+    return arr
 
 
 # Initialize project settings
@@ -66,11 +66,11 @@ try:
     train_data = train_data[feature_selector['feature'].to_list()]
 
     # Train set encoding
-    train_data = encode_data(df=train_data, feat_select=feature_selector)
+    train_data = encode_data(arr=train_data, feat_select=feature_selector)
     train_data.dropna(axis=0, inplace=True)
 
     # Save processed data in assets directory
-    settings.save_df(df=train_data, env_var='processed_train')
+    settings.save_df(arr=train_data, env_var='processed_train')
 
 except (FileNotFoundError, KeyError):
     # Exception prompt
@@ -92,11 +92,11 @@ try:
     test_data = test_data[test_feats]
 
     # Test set encoding
-    test_data = encode_data(df=test_data, feat_select=feature_selector)
+    test_data = encode_data(arr=test_data, feat_select=feature_selector)
     test_data.dropna(axis=0, inplace=True)
 
     # Save processed data in assets directory
-    settings.save_df(df=test_data, env_var='processed_test')
+    settings.save_df(arr=test_data, env_var='processed_test')
 
 except (FileNotFoundError, KeyError):
     # Exception prompt

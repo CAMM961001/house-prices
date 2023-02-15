@@ -1,34 +1,16 @@
 ************* Module settings
-scripts/settings.py:60:0: C0303: Trailing whitespace (trailing-whitespace)
-scripts/settings.py:61:0: C0303: Trailing whitespace (trailing-whitespace)
-scripts/settings.py:65:0: C0304: Final newline missing (missing-final-newline)
-scripts/settings.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-scripts/settings.py:8:0: C0115: Missing class docstring (missing-class-docstring)
-scripts/settings.py:10:8: C0103: Attribute name "SCRIPTS_PATH" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:11:8: C0103: Attribute name "ROOT_PATH" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:14:12: C0103: Attribute name "CONFIG" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:17:8: C0103: Attribute name "LOG_PATH" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:21:8: C0103: Attribute name "FEAT_PATH" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:8:0: R0902: Too many instance attributes (8/7) (too-many-instance-attributes)
-scripts/settings.py:13:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-scripts/settings.py:13:71: C0103: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:30:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
-scripts/settings.py:48:4: C0116: Missing function or method docstring (missing-function-docstring)
-scripts/settings.py:49:8: C0103: Variable name "df" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:55:4: C0116: Missing function or method docstring (missing-function-docstring)
-scripts/settings.py:55:22: C0103: Argument name "df" doesn't conform to snake_case naming style (invalid-name)
-scripts/settings.py:65:10: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
-scripts/settings.py:3:0: C0411: standard import "import logging" should be placed before "import yaml" (wrong-import-order)
+scripts/settings.py:17:8: C0103: Attribute name "SCRIPTS_PATH" doesn't conform to snake_case naming style (invalid-name)
+scripts/settings.py:18:8: C0103: Attribute name "ROOT_PATH" doesn't conform to snake_case naming style (invalid-name)
+scripts/settings.py:21:12: C0103: Attribute name "CONFIG" doesn't conform to snake_case naming style (invalid-name)
+scripts/settings.py:24:8: C0103: Attribute name "LOG_PATH" doesn't conform to snake_case naming style (invalid-name)
+scripts/settings.py:28:8: C0103: Attribute name "FEAT_PATH" doesn't conform to snake_case naming style (invalid-name)
+scripts/settings.py:11:0: R0902: Too many instance attributes (8/7) (too-many-instance-attributes)
+scripts/settings.py:20:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+scripts/settings.py:37:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
 
 ------------------------------------------------------------------
-Your code has been rated at 2.50/10 (previous run: 2.50/10, +0.00)
+Your code has been rated at 6.25/10 (previous run: 6.25/10, +0.00)
 
-scripts/settings.py:29:9: E265 block comment should start with '# '
-scripts/settings.py:51:13: E128 continuation line under-indented for visual indent
-scripts/settings.py:60:1: W293 blank line contains whitespace
-scripts/settings.py:61:1: W293 blank line contains whitespace
-scripts/settings.py:63:1: E303 too many blank lines (3)
-scripts/settings.py:65:30: W292 no newline at end of file
 ************* Module eda
 scripts/eda.py:49:0: C0303: Trailing whitespace (trailing-whitespace)
 scripts/eda.py:56:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -65,7 +47,6 @@ scripts/preprocess.py:119:0: C0304: Final newline missing (missing-final-newline
 scripts/preprocess.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 scripts/preprocess.py:1:0: C0410: Multiple imports on one line (os, logging) (multiple-imports)
 scripts/preprocess.py:9:0: C0112: Empty function docstring (empty-docstring)
-scripts/preprocess.py:9:16: C0103: Argument name "df" doesn't conform to snake_case naming style (invalid-name)
 scripts/preprocess.py:16:15: C0201: Consider iterating the dictionary directly instead of calling .keys() (consider-iterating-dictionary)
 scripts/preprocess.py:22:16: E1133: Non-iterable value feats['ordinal'] is used in an iterating context (not-an-iterable)
 scripts/preprocess.py:35:16: E1133: Non-iterable value feats['categorical'] is used in an iterating context (not-an-iterable)
@@ -76,7 +57,7 @@ scripts/preprocess.py:103:13: W1309: Using an f-string that does not have any in
 scripts/preprocess.py:1:0: W0611: Unused import os (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 5.18/10 (previous run: 7.87/10, -2.69)
+Your code has been rated at 5.36/10 (previous run: 5.36/10, +0.00)
 
 scripts/preprocess.py:1:1: F401 'os' imported but unused
 scripts/preprocess.py:1:10: E401 multiple imports on one line
@@ -105,7 +86,7 @@ scripts/model.py:9:0: C0411: standard import "from time import process_time" sho
 scripts/model.py:1:0: W0611: Unused import os (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.11/10 (previous run: 7.74/10, +0.37)
+Your code has been rated at 8.11/10 (previous run: 8.11/10, +0.00)
 
 scripts/model.py:1:1: F401 'os' imported but unused
 scripts/model.py:1:10: E401 multiple imports on one line

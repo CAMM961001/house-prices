@@ -57,7 +57,7 @@ predictions_df = pd.DataFrame({
 })
 
 # Save predictions to csv
-settings.save_df(df=predictions_df, env_var='predictions')
+settings.save_df(arr=predictions_df, env_var='predictions')
 
 
 if __name__ == '__main__':
